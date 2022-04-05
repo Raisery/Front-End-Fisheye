@@ -6,6 +6,43 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.photograph-header div {
+    margin-left: 50px;
+}
+
+.photograph-header div h1{
+    color: #D3573C;
+    font-size: 64px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.photograph-header div h2 {
+    color: #901C1C;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.photograph-header div p {
+    color: #525252;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 19px;
+}
+
+.photograph-header img {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 50px;
 }
 
 .contact_button {
