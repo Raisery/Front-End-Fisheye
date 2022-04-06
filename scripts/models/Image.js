@@ -3,7 +3,7 @@ class Image {
         this._id = data.id;
         this._photographerId = data.photographerId;
         this._title = data.title;
-        this._image = data.image;
+        this._media = data.image;
         this._likes = data.likes;
         this._price = data.price;
         this._date = data.date;
@@ -22,7 +22,7 @@ class Image {
     }
 
     get media() {
-        return this._image;
+        return this._media;
     }
 
     get likes() {
@@ -35,5 +35,16 @@ class Image {
 
     get date() {
         return this._date;
+    }
+
+    getMediaCardDOM(photographer) {
+        var url = `../../assets/photographers/${photographer.name}/${this.media}`;
+        const card = document.createElement('article');
+
+        const img = document.createElement('img');
+        img.setAttribute("src", url);
+
+        card.appendChild(img);
+        return card
     }
 }
