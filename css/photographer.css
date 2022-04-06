@@ -3,6 +3,7 @@
 }
 
 .photograph-header {
+    position: relative;
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
@@ -46,6 +47,9 @@
 }
 
 .contact_button {
+    position: absolute;
+    top: 115px;
+    left: 45%;
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -56,6 +60,7 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+
 }
 
 .modal {
@@ -110,4 +115,16 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+.sorter-label {
+    margin-left: 97px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.photo-container {
+    margin: 0 100px;
+    height: 20px;
+    background-color: #312E2E;
 }
