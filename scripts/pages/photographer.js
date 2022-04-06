@@ -34,10 +34,24 @@ async function displayData(photographer) {
     console.log(photographerModel.name);
 }
 
+async function displayMedia() {
+    const dataMedia = await fetch('../../data/photographers.json')
+    .then(res => res.json())
+    .then(res => res.media)
+    .catch(err => console.log('Un probléme est survenu', err));
+
+    dataMedia.forEach((data) => {
+        const media = new MediaFactory(data);
+        console.log(media);
+    });
+}
+
 async function init() {
     // Récupère les datas des photographes
     const photographer = await getPhotographer(idPhotographer);
+    displayMedia();
     displayData(photographer);
+
 };
 
 init();
