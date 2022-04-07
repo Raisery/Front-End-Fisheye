@@ -24,6 +24,7 @@
         
         displayData(photographers);
     };
+
     
     init();
     
