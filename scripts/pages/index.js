@@ -2,7 +2,7 @@
         // Penser à remplacer par les données récupérées dans le json
         // et bien retourner le tableau photographers seulement une fois
        
-        return fetch('data/photographers.json')
+        return fetch('Front-End-Fisheye/data/photographers.json')
         .then(res => res.json())
         .then(res => res.photographers)
         .catch(err => console.log('Un probléme est survenu', err))
