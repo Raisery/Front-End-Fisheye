@@ -1,7 +1,7 @@
 const idPhotographer = new URL(document.location).searchParams.get("id");
 
 async function getPhotographer(id) {
-    const photographers = await fetch('../../data/photographers.json')
+    const photographers = await fetch('data/photographers.json')
     .then(res => res.json())
     .then(res => res.photographers)
     .catch(err => console.log('Un probléme est survenu', err));
