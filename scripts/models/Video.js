@@ -39,16 +39,45 @@ class Video {
 
     getMediaCardDOM(photographer) {
         var url = `../../assets/photographers/${photographer.name}/${this.media}`;
-        const card = document.createElement('article');
 
-        const img = document.createElement('video');
-        img.setAttribute("width", "250");    
-        img.controls = true;    
+        const card = document.createElement('article');
+        card.classList.add("media-card");
+
+        const video = document.createElement('video');
+        video.classList.add("media-card_content");
+        video.setAttribute("width", "250");   
+        video.setAttribute("aria-label",`Vidéo de ${this.title}`);   
+
         const source = document.createElement('source');
         source.setAttribute("src",url);
         source.setAttribute("type","video/mp4");
-        img.appendChild(source);
-        card.appendChild(img);
+
+        video.appendChild(source);
+
+        const description = document.createElement('div');
+        description.classList.add('media-card_description');
+
+        const title = document.createElement('h3');
+        title.textContent = this.title;
+
+        const likes = document.createElement('div');
+        likes.classList.add('description_likes')
+
+        const nbLikes = document.createElement('p');
+        nbLikes.textContent = this.likes;
+
+        const heart = document.createElement('i');
+        heart.classList.add('fas');
+        heart.classList.add('fa-heart');
+
+        likes.appendChild(nbLikes);
+        likes.appendChild(heart);
+
+        description.appendChild(title);
+        description.appendChild(likes);
+
+        card.appendChild(video);
+        card.appendChild(description);
         return card
     }
     

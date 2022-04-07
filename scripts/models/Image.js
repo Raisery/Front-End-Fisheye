@@ -40,11 +40,37 @@ class Image {
     getMediaCardDOM(photographer) {
         var url = `../../assets/photographers/${photographer.name}/${this.media}`;
         const card = document.createElement('article');
+        card.classList.add("media-card");
 
         const img = document.createElement('img');
+        img.classList.add("media-card_content");
         img.setAttribute("src", url);
+        img.setAttribute("alt", `photo de ${this.title}`);
+
+        const description = document.createElement('div');
+        description.classList.add('media-card_description');
+
+        const title = document.createElement('h3');
+        title.textContent = this.title;
+
+        const likes = document.createElement('div');
+        likes.classList.add('description_likes')
+
+        const nbLikes = document.createElement('p');
+        nbLikes.textContent = this.likes;
+
+        const heart = document.createElement('i');
+        heart.classList.add('fas');
+        heart.classList.add('fa-heart');
+
+        likes.appendChild(nbLikes);
+        likes.appendChild(heart);
+
+        description.appendChild(title);
+        description.appendChild(likes);
 
         card.appendChild(img);
+        card.appendChild(description);
         return card
     }
 }
