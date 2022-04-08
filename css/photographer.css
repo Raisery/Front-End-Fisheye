@@ -185,7 +185,8 @@ form input {
     display: flex;
     align-items:flex-start;
     justify-content: space-around;
-    position: absolute;
+    position: fixed;
+    bottom: -20px;
     right: 36px;
     background: #DB8876;
     height: 90px;

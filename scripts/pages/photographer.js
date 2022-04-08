@@ -54,7 +54,9 @@ async function displayFlyer(photographer) {
     .catch(err => console.log('Un probléme est survenu', err));
     var nbLikes = 0;
     dataMedia.forEach((data) => {
-        nbLikes += data.likes;
+        if(data.photographerId == idPhotographer) {
+            nbLikes += data.likes;
+        }
     });
 
     //formatage du nombre de likes pour un affichage 3 000 et non 3000
