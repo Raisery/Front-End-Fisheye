@@ -46,11 +46,29 @@ async function displayMedia(photographer) {
     });
 }
 
+async function displayFlyer(photographer) {
+    const photographerModel = photographerFactory(photographer);
+    const dataMedia = await fetch('../../data/photographers.json')
+    .then(res => res.json())
+    .then(res => res.media)
+    .catch(err => console.log('Un probléme est survenu', err));
+    var nbLikes = 0;
+    dataMedia.forEach((data) => {
+        nbLikes += data.likes;
+    });
+
+    //formatage du nombre de likes pour un affichage 3 000 et non 3000
+    const res = new Intl.NumberFormat().format(nbLikes);
+
+    photographerModel.getPriceLikesDOM(res);
+}
+
 async function init() {
     // Récupère les datas des photographes
     const photographer = await getPhotographer(idPhotographer);
     displayMedia(photographer);
     displayData(photographer);
+    displayFlyer(photographer);
 
 };
 

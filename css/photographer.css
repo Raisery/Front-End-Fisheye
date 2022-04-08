@@ -15,6 +15,7 @@
 
 .photograph-header div {
     margin-left: 50px;
+    width: 500px;
 }
 
 .photograph-header div h1{
@@ -176,7 +177,29 @@ form input {
     margin-right: 5px;
 }
 
-.description_likes i{
+.fa-heart {
     font-size: 18px;
 }
+
+.flyer {
+    display: flex;
+    align-items:flex-start;
+    justify-content: space-around;
+    position: absolute;
+    right: 36px;
+    background: #DB8876;
+    height: 90px;
+    width: 376px;
+    padding-top: 20px;
+    border-radius: 5px;
+    font-size: 24px;
+
+}
+
+.flyer_likes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 

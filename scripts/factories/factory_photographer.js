@@ -30,8 +30,7 @@ function photographerFactory(data) {
         article.appendChild(h3); 
         article.appendChild(h4);   
         article.appendChild(p);   
-        link.appendChild(article);    
-        console.log(city);          
+        link.appendChild(article);        
         return (link);
     }
 
@@ -56,5 +55,29 @@ function photographerFactory(data) {
         return photo
     }
 
-    return { name, picture, getUserCardDOM, getUserBannerTextDOM, getUserBannerPhotoDOM }
+    function getPriceLikesDOM(nbLikes) {
+        const flyer = document.querySelector('.flyer');
+        
+        const likes = document.createElement("div");
+        likes.classList.add("flyer_likes");
+
+        const nb = document.createElement('p');
+        nb.textContent = nbLikes;
+        const heart = document.createElement('i');
+        heart.classList.add('fas');
+        heart.classList.add('fa-heart');
+
+        likes.appendChild(nb);
+        likes.appendChild(heart);
+
+        const priceText = document.createElement("p");
+        priceText.textContent = (`${price}€ / jour`);
+
+        flyer.appendChild(likes);
+        flyer.appendChild(priceText);
+
+        return flyer
+    }
+
+    return { name, picture, getUserCardDOM, getUserBannerTextDOM, getUserBannerPhotoDOM, getPriceLikesDOM }
 }
