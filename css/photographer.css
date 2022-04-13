@@ -125,6 +125,7 @@ form input {
     align-items: center;
     width: 100%;
     padding-left: 100px;
+    margin-bottom: 15px;
 
 }
 
@@ -171,6 +172,9 @@ form input {
 
 .fa-heart {
     font-size: 18px;
+    color: #901C1C;
+    border: none;
+    background: transparent;
 }
 
 .flyer {
@@ -193,6 +197,10 @@ form input {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.flyer_likes p, .flyer_likes i {
+    color: black;
 }
 
 .sorter-container {
