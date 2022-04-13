@@ -59,7 +59,7 @@ class Image {
         const nbLikes = document.createElement('p');
         nbLikes.textContent = this.likes;
 
-        const heart = document.createElement('i');
+        const heart = document.createElement('button');
         heart.classList.add('fas');
         heart.classList.add('fa-heart');
 
