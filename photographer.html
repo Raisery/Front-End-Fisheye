@@ -16,10 +16,20 @@
     <main id="main">
       <div class="photograph-header">
       </div>
-      <div class="sorter">
-        <p class="sorter-label">Trier par </p>
-        <div class="sorter-selection"></div>
+
+      
+      <div class="sorter-container">
+        <label id="sorter-label" for="sorter-selector">Trier par</label>
+        <div class="sorter">
+          <button id="sorter-selector" type="button" onclick="displayOptions()">Popularité<div class="arrow-selector-down"></div></button>
+          <div class="options-list hidden">
+            <button class="option" onclick="sortBy('like')">Popularité<div class="arrow-selector-up"></div></button>
+            <button class="option" onclick="sortBy('date')"><div class ="line"></div>Date</button>
+            <button class="option" onclick="sortBy('title')"><div class ="line"></div>Titre</button>
+          </div>
+        </div>
       </div>
+      
       
       <div class="media-container"></div>
       <div class="flyer">
@@ -47,6 +57,7 @@
     <script src="https://kit.fontawesome.com/ec64a245e1.js" crossorigin="anonymous"></script>
 
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/sorter.js"></script>
 
     <script src="/scripts/pages/photographer.js"></script>
 

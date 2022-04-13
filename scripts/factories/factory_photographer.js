@@ -72,7 +72,7 @@ function photographerFactory(data) {
 
         const priceText = document.createElement("p");
         priceText.textContent = (`${price}€ / jour`);
-
+        flyer.innerHTML ="";
         flyer.appendChild(likes);
         flyer.appendChild(priceText);
 

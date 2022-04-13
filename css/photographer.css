@@ -7,7 +7,6 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
-    margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -119,12 +118,6 @@ form input {
     border-radius: 5px;
 }
 
-.sorter-label {
-    margin-left: 97px;
-    margin-bottom: 58px;
-    font-size: 18px;
-    font-weight: 700;
-}
 
 .media-container {
     display: flex;
@@ -201,5 +194,83 @@ form input {
     align-items: center;
     justify-content: center;
 }
+
+.sorter-container {
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-left: 97px;   
+    margin-bottom: 58px; 
+    margin-top: 9px;
+}
+
+.sorter button {
+    position: relative;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    background: #901C1C;
+    color: white;
+    height: 60px;
+    width: 170px;
+    text-align: left;
+    padding-left: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.sorter {
+    height: 60px;
+    width: 170px;
+    border-radius: 5px;
+    position: relative;
+    margin-left: 25px;
+    background: #901C1C;
+}
+
+.options-list {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: #901C1C;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.line {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    height: 1px;
+    width: 150px;
+    background: #FAFAFA;
+}
+
+.arrow-selector-up, .arrow-selector-down {
+    position: absolute;
+    right: 18px;
+    height: 10px;
+    width: 10px;
+    border: #FAFAFA;
+    border-width: 3px;
+    border-top-style: solid;
+    border-right-style: solid;
+}
+
+.arrow-selector-down {
+    top: 42%;
+    transform: rotate(135deg);
+}
+.arrow-selector-up {
+    top: 50%;
+    transform: rotate(-45deg);
+}
+
+
 
 

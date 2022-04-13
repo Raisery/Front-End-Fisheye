@@ -24,26 +24,76 @@ async function displayData(photographer) {
 
     const photo = photographerModel.getUserBannerPhotoDOM();
 
-
+    userBanner.innerHTML ="";
     userBanner.appendChild(userBannerText);
     userBanner.appendChild(btn);
     userBanner.appendChild(photo);
 }
 
 //affichage des medias crées par le photographe
-async function displayMedia(photographer) {
+//sortBy peut etre : date / title / like
+async function displayMedia(photographer, sortBy) {
     const mediaContainer = document.querySelector(".media-container");
     const dataMedia = await fetch('../../data/photographers.json')
     .then(res => res.json())
     .then(res => res.media)
     .catch(err => console.log('Un probléme est survenu', err));
 
+    var mediaArray = [];
     dataMedia.forEach((data) => {
         if(data.photographerId == idPhotographer) {
             const media = new MediaFactory(data);
-            mediaContainer.appendChild(media.getMediaCardDOM(photographer));
+            mediaArray.push(media);
         }
     });
+
+    switch(sortBy) {
+        case "date" :
+            mediaArray.sort(function compare(a,b) {
+                if(a.date < b.date) {
+                    return -1
+                }
+
+                if(a.date > b.date) {
+                    return 1;
+                }
+                return 0;
+            });
+
+            break;
+        case "title" :
+            mediaArray.sort(function compare(a,b) {
+                if(a.title < b.title) {
+                    return -1
+                }
+
+                if(a.title > b.title) {
+                    return 1;
+                }
+                return 0;
+            });
+            break;
+        case "like" :
+            mediaArray.sort(function compare(a,b) {
+                if(a.likes > b.likes) {
+                    return -1
+                }
+
+                if(a.likes < b.likes) {
+                    return 1;
+                }
+                return 0;
+            });
+            break;
+        default :
+            console.log(" paramétre Sortby incorrect");
+            break;
+    }
+    mediaContainer.innerHTML = "";
+    mediaArray.forEach((media) => {
+        mediaContainer.appendChild(media.getMediaCardDOM(photographer));
+    });
+    
 }
 
 async function displayFlyer(photographer) {
@@ -65,13 +115,14 @@ async function displayFlyer(photographer) {
     photographerModel.getPriceLikesDOM(res);
 }
 
-async function init() {
+
+async function init(sortBy) {
     // Récupère les datas des photographes
     const photographer = await getPhotographer(idPhotographer);
-    displayMedia(photographer);
+    displayMedia(photographer,sortBy);
     displayData(photographer);
     displayFlyer(photographer);
 
 };
 
-init();
+init("like");
