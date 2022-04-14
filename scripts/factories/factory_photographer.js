@@ -62,6 +62,7 @@ function photographerFactory(data) {
         likes.classList.add("flyer_likes");
 
         const nb = document.createElement('p');
+        nb.classList.add("total-likes");
         nb.textContent = nbLikes;
         const heart = document.createElement('i');
         heart.classList.add('fas');

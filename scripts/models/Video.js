@@ -75,16 +75,18 @@ class Video {
         heart.classList.add('fa-heart');
 
         checkbox.addEventListener('change', e => {
-
+            const totalLikes = document.querySelector('.total-likes');
             if(e.target.checked){
                 //do something
                 heart.style.color = "#DB8876";
                 count.innerHTML = this.likes + 1;
+                totalLikes.innerHTML = (parseInt(totalLikes.innerHTML)+1);
             }
 
             else {
                 heart.style.color = "#901C1C";
                 count.innerHTML = this.likes;
+                totalLikes.innerHTML = (parseInt(totalLikes.innerHTML)-1);
             }
         
         });
