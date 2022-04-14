@@ -162,16 +162,18 @@ form input {
     display: flex;
     align-items: center;
     align-self: flex-start;
-
-}
-
-.description_likes p {
     font-weight: 500;
-    margin-right: 5px;
+
 }
+
+.description_likes input[type="checkbox"] {
+   display: none;
+}
+
 
 .fa-heart {
     font-size: 18px;
+    margin-left: 7px;
     color: #901C1C;
     border: none;
     background: transparent;

@@ -53,17 +53,37 @@ class Image {
         const title = document.createElement('h3');
         title.textContent = this.title;
 
-        const likes = document.createElement('div');
-        likes.classList.add('description_likes')
+        const likes = document.createElement('label');
+        likes.classList.add('description_likes');
 
-        const nbLikes = document.createElement('p');
-        nbLikes.textContent = this.likes;
+        const checkbox = document.createElement('input');
+        checkbox.setAttribute("type","checkbox");
 
-        const heart = document.createElement('button');
+        const count = document.createElement("p");
+        count.textContent = this.likes;
+        
+
+        const heart = document.createElement('i');
         heart.classList.add('fas');
         heart.classList.add('fa-heart');
 
-        likes.appendChild(nbLikes);
+        checkbox.addEventListener('change', e => {
+
+            if(e.target.checked){
+                //do something
+                heart.style.color = "#DB8876";
+                count.innerHTML = this.likes + 1;
+            }
+
+            else {
+                heart.style.color = "#901C1C";
+                count.innerHTML = this.likes;
+            }
+        
+        });
+
+        likes.appendChild(count);
+        likes.appendChild(checkbox);
         likes.appendChild(heart);
 
         description.appendChild(title);
