@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
   </head>
-  <body>
+  <body class="body">
     <header>
       <a href="index.html">
         <img src="assets/images/logo.png" class="logo" />
@@ -38,15 +38,24 @@
     <div id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
+          <div>
+            <h2>Contactez-moi</h2>
+            <h2 class="hello_name"></h2>
+          </div>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="prenom">Prénom</label>
+						<input type="text" name="prenom" id="prenom" required />
+            <label for="nom">Nom</label>
+						<input type="text" name="nom" id="nom" required/>
+            <label for="email">Email</label>
+						<input type="email" name="email" id="email" required/>
+            <label for="message">Votre message</label>
+            <textarea name="message" id="message" required></textarea>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" onclick="closeModal()">Envoyer</button>
 				</form>
 			</div>
 		</div>

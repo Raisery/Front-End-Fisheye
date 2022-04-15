@@ -15,6 +15,11 @@ body {
     margin-left: auto;
 }
 
+.no-scroll {
+    overflow-y: hidden;
+    width: 1455px;
+    padding-right: 15px;
+}
 
 header {
     display: flex;

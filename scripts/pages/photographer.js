@@ -13,6 +13,7 @@ async function getPhotographer(id) {
 //affiche des données du photographe
 async function displayData(photographer) {
     const userBanner = document.querySelector(".photograph-header");
+    
     const photographerModel = photographerFactory(photographer);
 
     const userBannerText = photographerModel.getUserBannerTextDOM();
@@ -28,6 +29,9 @@ async function displayData(photographer) {
     userBanner.appendChild(userBannerText);
     userBanner.appendChild(btn);
     userBanner.appendChild(photo);
+
+    const modalTitle = document.querySelector(".hello_name");
+    modalTitle.innerHTML = `${photographerModel.name}`;
 }
 
 //affichage des medias crées par le photographe
