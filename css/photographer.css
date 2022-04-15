@@ -2,7 +2,6 @@
     height: 100%;
     width: 100%;
     display: none;
-    overflow-y: scroll;
 }
 
 .photograph-header {
@@ -66,7 +65,6 @@
 
 .modal {
     position: fixed;
-    z-index: 11;
     top : 62px;
     left: 386px;
     border-radius: 5px;
@@ -158,6 +156,7 @@ form textarea {
     overflow: hidden;
     object-fit: cover;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .media-card {
@@ -202,13 +201,14 @@ form textarea {
     background: transparent;
 }
 
+
 .flyer {
     display: flex;
     align-items:flex-start;
     justify-content: space-around;
     position: fixed;
     bottom: -20px;
-    right: 36px;
+    right: 40px;
     background: #DB8876;
     height: 90px;
     width: 376px;
@@ -218,7 +218,7 @@ form textarea {
 
 }
 .flyer-no-scroll {
-    right: 51px;
+    right: 55px;
 }
 
 .flyer_likes {
@@ -306,6 +306,47 @@ form textarea {
     top: 50%;
     transform: rotate(-45deg);
 }
+
+#lightbox-modal {
+    position: absolute;
+    top: 80px;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: none;
+}
+
+.media-modal {
+    position: fixed;
+    top: 20%;
+    border:solid;
+    border-color: #95FFF9;
+    border-width: 2px;
+    width: 1440px;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    
+
+}
+
+.left-arrow, .right-arrow {
+    height: 25px;
+    width: 25px;
+    background: none;
+    border: solid;
+    border-width : 5px;
+    border-radius: 0;
+    border-right: none;
+    border-bottom: none;
+}
+
+
+
+
+
+
+
 
 
 
