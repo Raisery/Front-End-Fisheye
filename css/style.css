@@ -11,12 +11,14 @@
 body {
     font-family: "DM Sans", sans-serif;
     width: 1440px;
+    height: auto;
     margin-right: auto;
     margin-left: auto;
 }
 
 .no-scroll {
     overflow-y: hidden;
+    overflow-x: hidden;
     width: 1455px;
     padding-right: 15px;
 }

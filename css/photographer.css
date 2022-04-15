@@ -308,17 +308,17 @@ form textarea {
 }
 
 #lightbox-modal {
-    position: absolute;
-    top: 80px;
+    position: fixed;
+    top: 0;
+    width: 100vw;
     height: 100%;
-    width: 100%;
     background-color: white;
-    /*display: none;*/
+    display: none;
 }
 
 .media-modal {
     position: fixed;
-    top: 80px;
+    top: 10%;
     border:solid;
     border-color: #95FFF9;
     border-width: 2px;
@@ -362,9 +362,19 @@ form textarea {
 }
 
 .media {
-    max-width: 800px;
-    overflow: hidden;
     border-radius: 5px;
+    padding-bottom: 20px;
+    max-height: 80vh;
+    overflow: hidden;
+}
+
+.media img {
+    width: 1000px;
+    object-fit: cover;
+}
+
+.media video{
+    width: 1000px;
 }
 
 

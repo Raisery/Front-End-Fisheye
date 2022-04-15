@@ -53,7 +53,9 @@ class Video {
         source.setAttribute("type","video/mp4");
 
         video.appendChild(source);
-        video.addEventListener("click", displayLightBox);
+        video.addEventListener('click', () => { 
+            displayLightBox(this, photographer);
+        });
         const description = document.createElement('div');
         description.classList.add('media-card_description');
 
@@ -101,6 +103,21 @@ class Video {
         card.appendChild(video);
         card.appendChild(description);
         return card
+    }
+
+    getOrginalDisplayDOM(photographer) {
+        var url = `../../assets/photographers/${photographer.name}/${this.media}`;
+        const video = document.createElement('video');
+        video.controls = true;
+        video.setAttribute("aria-label",`Vidéo de ${this.title}`);   
+
+        const source = document.createElement('source');
+        source.setAttribute("src",url);
+        source.setAttribute("type","video/mp4");
+
+        video.appendChild(source);
+
+        return video;
     }
     
 }

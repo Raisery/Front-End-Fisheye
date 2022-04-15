@@ -47,7 +47,9 @@ class Image {
         img.setAttribute("src", url);
         img.setAttribute("alt", `photo de ${this.title}`);
 
-        img.addEventListener('click', displayLightBox);
+        img.addEventListener('click', () => { 
+            displayLightBox(this, photographer);
+        });
 
         const description = document.createElement('div');
         description.classList.add('media-card_description');
@@ -97,5 +99,13 @@ class Image {
         card.appendChild(img);
         card.appendChild(description);
         return card
+    }
+
+    getOrginalDisplayDOM(photographer) {
+        var url = `../../assets/photographers/${photographer.name}/${this.media}`;
+        const img = document.createElement("img");
+        img.setAttribute("src",url);
+
+        return img;
     }
 }
