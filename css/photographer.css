@@ -313,21 +313,25 @@ form textarea {
     height: 100%;
     width: 100%;
     background-color: white;
-    display: none;
+    /*display: none;*/
 }
 
 .media-modal {
     position: fixed;
-    top: 20%;
+    top: 80px;
     border:solid;
     border-color: #95FFF9;
     border-width: 2px;
     width: 1440px;
-    height: 50%;
+}
+
+.lightbox_main-content {
+    position: relative;
+    width: 100%;
+    padding: 22px 30px 22px 30px;
     display: flex;
     align-items: center;
-    
-
+    justify-content: space-between;
 }
 
 .left-arrow, .right-arrow {
@@ -335,10 +339,32 @@ form textarea {
     width: 25px;
     background: none;
     border: solid;
+    border-color: #901C1C;
     border-width : 5px;
     border-radius: 0;
     border-right: none;
     border-bottom: none;
+    cursor: pointer;
+}
+
+.left-arrow {
+    transform: rotate(-45deg);
+}
+.right-arrow {
+    transform: rotate(135deg);
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+}
+
+.media {
+    max-width: 800px;
+    overflow: hidden;
+    border-radius: 5px;
 }
 
 

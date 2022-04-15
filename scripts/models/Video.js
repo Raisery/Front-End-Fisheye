@@ -53,7 +53,7 @@ class Video {
         source.setAttribute("type","video/mp4");
 
         video.appendChild(source);
-
+        video.addEventListener("click", displayLightBox);
         const description = document.createElement('div');
         description.classList.add('media-card_description');
 
@@ -73,6 +73,7 @@ class Video {
         const heart = document.createElement('i');
         heart.classList.add('fas');
         heart.classList.add('fa-heart');
+        heart.classList.add('clickable');
 
         checkbox.addEventListener('change', e => {
             const totalLikes = document.querySelector('.total-likes');

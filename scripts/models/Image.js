@@ -47,6 +47,8 @@ class Image {
         img.setAttribute("src", url);
         img.setAttribute("alt", `photo de ${this.title}`);
 
+        img.addEventListener('click', displayLightBox);
+
         const description = document.createElement('div');
         description.classList.add('media-card_description');
 
@@ -66,6 +68,7 @@ class Image {
         const heart = document.createElement('i');
         heart.classList.add('fas');
         heart.classList.add('fa-heart');
+        heart.classList.add('clickable');
 
         checkbox.addEventListener('change', e => {
             const totalLikes = document.querySelector('.total-likes');
