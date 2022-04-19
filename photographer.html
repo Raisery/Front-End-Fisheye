@@ -37,7 +37,7 @@
     </main>
 
     <div id="contact_modal">
-			<div class="modal">
+			<div class="modal" id="modal-form">
 				<header>
           <div>
             <h2>Contactez-moi</h2>
@@ -45,18 +45,18 @@
           </div>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
+				<form id="contact-form">
 					<div>
-						<label for="prenom">Prénom</label>
+						<label for="prenom">Prénom<span class="error-message hidden"></br>Le prénom doit contenir 2 caractéres alphabétiques minimum</span></label>
 						<input type="text" name="prenom" id="prenom" required />
-            <label for="nom">Nom</label>
+            <label for="nom">Nom<span class="error-message hidden"></br>Le nom doit contenir 2 caractéres alphabétiques minimum</span></label>
 						<input type="text" name="nom" id="nom" required/>
-            <label for="email">Email</label>
+            <label for="email">Email<span class="error-message hidden"></br>L'adresse email doit être valide</span></label>
 						<input type="email" name="email" id="email" required/>
-            <label for="message">Votre message</label>
+            <label for="message">Votre message<span class="error-message hidden"></br>Les caractéres spéciaux ne sont pas autorisés</span></label>
             <textarea name="message" id="message" required></textarea>
 					</div>
-          <button class="contact_button" onclick="closeModal()">Envoyer</button>
+          <button class="contact_button" >Envoyer</button>
 				</form>
 			</div>
 		</div>

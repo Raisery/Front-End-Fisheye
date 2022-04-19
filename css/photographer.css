@@ -64,18 +64,19 @@
 }
 
 .modal {
-    position: fixed;
+    position: absolute;
     top : 62px;
-    left: 386px;
+    left: 50%;
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 670px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 35px;
-    margin: auto;
+    transform: translateX(-50%);
+    overscroll-behavior: contain;
 }
 
 .modal header {
@@ -137,6 +138,11 @@ form textarea {
     height: 170px;
     resize: none;
     border-radius: 5px;
+}
+
+.error-message {
+    font-size: 18px;
+    color: #901C1C;
 }
 
 
