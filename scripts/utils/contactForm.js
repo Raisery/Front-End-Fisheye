@@ -36,11 +36,8 @@ function checkScroll() {
             window.scrollTo(0,minimum);
             
         }
-    }
-    console.log(scrollY + 100 + modal.offsetHeight );
+    } 
     
-    
-
 }
 
 // autorise le scroll
@@ -120,8 +117,7 @@ function verification(event) {
             result[0] = false;
             
     }
-    console.log(prenom);
-    console.log(result);
+    console.log(`prenom : ${prenom}`);
 
     //test nom
     if (
@@ -132,16 +128,15 @@ function verification(event) {
             result[1] = false;
     }
 
-    console.log(nom);
-    console.log(result);
+    console.log(`nom : ${nom}`);
 
     //test email
     if (email.toString().match(emailRegex) === null) {
         result[2] = false;
         
     }
-    console.log(email);
-    console.log(result);
+    console.log(`email : ${email}`);
+
 
     //test message
     if (message.length == 0 ||
@@ -149,7 +144,7 @@ function verification(event) {
             result[3] = false;
 
     }
-    console.log(message);
+    console.log(`message : ${message}`);
     console.log(result);
 
 
@@ -161,6 +156,7 @@ function verification(event) {
     if (valid === undefined) {
         form.reset();
         closeModal();
+        console.log("formulaire valide");
     }
     else {
         showError(result);
