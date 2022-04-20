@@ -5,14 +5,14 @@ function photographerFactory(data) {
 
     function getUserCardDOM() {
         const link = document.createElement('a');
-        link.setAttribute("href",`/photographer.html?id=${id}`);                                  
-        const article = document.createElement( 'article' );
+        link.setAttribute("href", `/photographer.html?id=${id}`);
+        const article = document.createElement('article');
 
-        const img = document.createElement( 'img' );
+        const img = document.createElement('img');
         img.setAttribute("src", picture);
-        img.setAttribute("alt",`Photo de profil de ${name}`);
+        img.setAttribute("alt", `Photo de profil de ${name}`);
 
-        const h2 = document.createElement( 'h2' );
+        const h2 = document.createElement('h2');
         h2.textContent = name;
 
         const h3 = document.createElement('h3');
@@ -27,10 +27,10 @@ function photographerFactory(data) {
 
         article.appendChild(img);
         article.appendChild(h2);
-        article.appendChild(h3); 
-        article.appendChild(h4);   
-        article.appendChild(p);   
-        link.appendChild(article);        
+        article.appendChild(h3);
+        article.appendChild(h4);
+        article.appendChild(p);
+        link.appendChild(article);
         return (link);
     }
 
@@ -57,7 +57,7 @@ function photographerFactory(data) {
 
     function getPriceLikesDOM(nbLikes) {
         const flyer = document.querySelector('.flyer');
-        
+
         const likes = document.createElement("div");
         likes.classList.add("flyer_likes");
 
@@ -73,12 +73,29 @@ function photographerFactory(data) {
 
         const priceText = document.createElement("p");
         priceText.textContent = (`${price}€ / jour`);
-        flyer.innerHTML ="";
+        flyer.innerHTML = "";
         flyer.appendChild(likes);
         flyer.appendChild(priceText);
 
         return flyer
     }
 
-    return { name, picture, getUserCardDOM, getUserBannerTextDOM, getUserBannerPhotoDOM, getPriceLikesDOM }
+    async function getMediaList() {
+        const dataMedia = await fetch('../../data/photographers.json')
+            .then(res => res.json())
+            .then(res => res.media)
+            .catch(err => console.log('Un probléme est survenu', err));
+
+        var mediaArray = [];
+        dataMedia.forEach((data) => {
+            if (data.photographerId == idPhotographer) {
+                const media = new MediaFactory(data);
+                mediaArray.push(media);
+            }
+        });
+
+        return mediaArray
+    }
+
+    return { name, picture, getUserCardDOM, getUserBannerTextDOM, getUserBannerPhotoDOM, getPriceLikesDOM, getMediaList}
 }
