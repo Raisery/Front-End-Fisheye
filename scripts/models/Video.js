@@ -7,6 +7,7 @@ class Video {
         this._likes = data.likes;
         this._price = data.price;
         this._date = data.date;
+        this._type = 'video';
     }
     
     get id() {
@@ -37,6 +38,11 @@ class Video {
         return this._date;
     }
 
+    get type() {
+        return this._type;
+    }
+
+
     getMediaCardDOM(photographer) {
         var url = `../../assets/photographers/${photographer.name}/${this.media}`;
 
@@ -53,9 +59,31 @@ class Video {
         source.setAttribute("type","video/mp4");
 
         video.appendChild(source);
+
+        var sortBy;
+        const sorter = document.getElementById("sorter-selector");
+        if(sorter.textContent == "Popularité") {
+            sortBy= "like";
+        }
+
+        if(sorter.textContent == "Date") {
+            sortBy = "date";
+        }
+
+        if(sorter.textContent == "Titre") {
+            sortBy = "title";
+        }
+
         video.addEventListener('click', () => { 
-            displayLightBox(this, photographer);
+            displayLightBox(this, photographer,sortBy);
         });
+
+        video.addEventListener('keydown', (event) => {
+            if(event.key == "Enter") {
+                displayLightBox(this, photographer,sortBy);
+            }
+        });
+
         const description = document.createElement('div');
         description.classList.add('media-card_description');
 
@@ -107,9 +135,12 @@ class Video {
 
     getOrginalDisplayDOM(photographer) {
         var url = `../../assets/photographers/${photographer.name}/${this.media}`;
+        const container = document.createElement("div");
+
         const video = document.createElement('video');
         video.controls = true;
         video.setAttribute("aria-label",`Vidéo de ${this.title}`);   
+        video.setAttribute('id','video');
 
         const source = document.createElement('source');
         source.setAttribute("src",url);
@@ -117,7 +148,12 @@ class Video {
 
         video.appendChild(source);
 
-        return video;
+        const title = document.createElement("h1");
+        title.textContent = this.title;
+
+        container.appendChild(video);
+        container.appendChild(title);
+        return container;
     }
     
 }

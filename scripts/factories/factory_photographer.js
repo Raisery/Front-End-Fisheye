@@ -80,7 +80,7 @@ function photographerFactory(data) {
         return flyer
     }
 
-    async function getMediaList() {
+    async function getMediaList(sortBy) {
         const dataMedia = await fetch('../../data/photographers.json')
             .then(res => res.json())
             .then(res => res.media)
@@ -93,6 +93,49 @@ function photographerFactory(data) {
                 mediaArray.push(media);
             }
         });
+
+        switch(sortBy) {
+            case "date" :
+                mediaArray.sort(function compare(a,b) {
+                    if(a.date < b.date) {
+                        return -1
+                    }
+    
+                    if(a.date > b.date) {
+                        return 1;
+                    }
+                    return 0;
+                });
+    
+                break;
+            case "title" :
+                mediaArray.sort(function compare(a,b) {
+                    if(a.title < b.title) {
+                        return -1
+                    }
+    
+                    if(a.title > b.title) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                break;
+            case "like" :
+                mediaArray.sort(function compare(a,b) {
+                    if(a.likes > b.likes) {
+                        return -1
+                    }
+    
+                    if(a.likes < b.likes) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                break;
+            default :
+                console.log(" paramétre Sortby incorrect");
+                break;
+        }
 
         return mediaArray
     }

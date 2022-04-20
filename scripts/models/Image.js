@@ -7,6 +7,7 @@ class Image {
         this._likes = data.likes;
         this._price = data.price;
         this._date = data.date;
+        this._type = "image";
     }
     
     get id() {
@@ -37,6 +38,10 @@ class Image {
         return this._date;
     }
 
+    get type() {
+        return this._type;
+    }
+
     getMediaCardDOM(photographer) {
         var url = `../../assets/photographers/${photographer.name}/${this.media}`;
         const card = document.createElement('article');
@@ -47,8 +52,34 @@ class Image {
         img.setAttribute("src", url);
         img.setAttribute("alt", `photo de ${this.title}`);
 
+        var sortBy;
+        const sorter = document.getElementById("sorter-selector");
+        if(sorter.textContent == "Popularité") {
+            sortBy= "like";
+        }
+
+        if(sorter.textContent == "Date") {
+            sortBy = "date";
+        }
+
+        if(sorter.textContent == "Titre") {
+            sortBy = "title";
+        }
+
         img.addEventListener('click', () => { 
-            displayLightBox(this, photographer);
+            displayLightBox(this, photographer,sortBy);
+        });
+
+        
+
+        const a = document.createElement("a");
+        a.setAttribute("aria-label","Voir la photo");
+        a.setAttribute("href",`#`);
+
+        a.addEventListener('keydown', (event) => {
+            if(event.key == "Enter") {
+                displayLightBox(this, photographer,sortBy);
+            }
         });
 
         const description = document.createElement('div');
@@ -96,16 +127,26 @@ class Image {
         description.appendChild(title);
         description.appendChild(likes);
 
-        card.appendChild(img);
+        a.appendChild(img);
+        card.appendChild(a);    
         card.appendChild(description);
         return card
     }
 
     getOrginalDisplayDOM(photographer) {
         var url = `../../assets/photographers/${photographer.name}/${this.media}`;
+        const container = document.createElement("div");
+
         const img = document.createElement("img");
         img.setAttribute("src",url);
+        img.setAttribute("alt",`Photo de ${this.title}`);
+        img.setAttribute('id','image');
 
-        return img;
+        const title = document.createElement("h1");
+        title.textContent = this.title;
+
+        container.appendChild(img);
+        container.appendChild(title);
+        return container;
     }
 }

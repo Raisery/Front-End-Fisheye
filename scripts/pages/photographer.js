@@ -21,6 +21,7 @@ async function displayData(photographer) {
     const btn = document.createElement("button");
     btn.textContent= "Contactez-moi";
     btn.classList.add("contact_button");
+    btn.classList.add("center-btn");
     btn.setAttribute("onclick","displayModal()");
 
     const photo = photographerModel.getUserBannerPhotoDOM();

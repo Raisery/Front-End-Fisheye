@@ -50,10 +50,6 @@
 }
 
 .contact_button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -61,10 +57,25 @@
     width: 170px;
     height: 70px;
     border: none;
+    border-color: #901C1C;
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
 
+.contact_button:hover, .contact_button:focus {
+    background: white;
+    color: #901C1C;
+    border: solid;
+    padding: 0;
+   
+}
+
+.center-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .modal {
@@ -255,7 +266,8 @@ form textarea {
     position: relative;
     font-size: 18px;
     font-weight: 700;
-    border: none;
+    border: solid;
+    border-color: #901C1C;
     background: #901C1C;
     color: white;
     height: 60px;
@@ -264,6 +276,16 @@ form textarea {
     padding-left: 20px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+.sorter button:hover, .sorter button:focus   {
+    background: white;
+    color: #901C1C;
+    border-color: #901C1C;
+}
+
+.sorter button:hover *, .sorter button:focus *{
+    border-color: #901C1C;
 }
 
 .sorter {
@@ -307,6 +329,7 @@ form textarea {
     border-top-style: solid;
     border-right-style: solid;
 }
+
 
 .arrow-selector-down {
     top: 42%;
@@ -373,22 +396,53 @@ form textarea {
 }
 
 .media {
+    position: relative;
     display: block;
-    overflow: hidden;
     border-radius: 5px;
     max-width: 80%;
 }
 
+.media h1 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+
 .media img {
     display: block;
     object-fit: contain;
-    max-height: 79vh;
+    border-radius: 5px;
+    max-height: 70vh;
     width: auto;
 
 }
 
 .media video {
     width: 100%;
+    border-radius: 5px;
+}
+
+
+.index-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 45px;
+    width: 45px;
+    bottom: -7px;
+    left: -50px;
+    border: solid;
+    border-radius: 50%;
+    border-width: 3px;
+    border-color: #95FFF9;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+a:focus img, video:focus {
+    border: solid;
+    border-color: linear-gradient(ellipse at center top, white,black) ;
 }
 
 
