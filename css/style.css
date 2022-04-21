@@ -8,6 +8,10 @@
   padding: 0;
 }
 
+:focus {
+    outline: none;
+}
+
 body {
     font-family: "DM Sans", sans-serif;
     width: 1440px;

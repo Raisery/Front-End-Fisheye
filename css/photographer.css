@@ -171,7 +171,7 @@ form textarea {
 
 }
 
-.media-card_content{
+.media-card_content, .media-card a{
     width: 350px;
     height: 300px;
     overflow: hidden;
@@ -186,6 +186,19 @@ form textarea {
    height: 350px;
    margin-bottom: 30px;
 }
+
+.media-card img, .media-card video {
+    border: solid;
+    border-color: white;
+    border-width: 2px;
+}
+
+.media-card a:focus img, .media-card video:focus {
+    border: solid;
+    border-width: 2px;
+    border-color: linear-gradient(ellipse at center top, white,black) ;
+}
+
 
 .media-card_description {
     display: flex;
@@ -440,10 +453,6 @@ form textarea {
     font-weight: 400;
 }
 
-a:focus img, video:focus {
-    border: solid;
-    border-color: linear-gradient(ellipse at center top, white,black) ;
-}
 
 
 
