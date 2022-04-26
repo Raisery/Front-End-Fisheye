@@ -19,10 +19,11 @@ affiche la lightbox avec en media celui qui a appelé cette fonction
 */
 async function displayLightBox(media, photographerParam, sortBy) {
     //active le controle de la lightbox au clavier
-    setupKeyListener();
+    setupLightKeyListener();
     //récuperation du photographe en variable globale
     photographer = photographerParam;
-
+    const main = document.getElementById('main');
+    main.style.display = "none";
     const lightBox = document.getElementById("lightbox-modal");
     //on affiche la modal lightbox
     lightBox.style.display = "flex";
@@ -60,6 +61,8 @@ async function displayLightBox(media, photographerParam, sortBy) {
 Ferme la lightbox
 */
 function closeLightBox() {
+    const main = document.getElementById('main');
+    main.style.display = "block";
     const lightBox = document.getElementById("lightbox-modal");
     lightBox.style.display = "none";
     const body = document.querySelector(".body");
@@ -128,8 +131,10 @@ function previousMedia() {
 /*
 active le controle au clavier de la lightbox
 */
-function setupKeyListener() {
+function setupLightKeyListener() {
+    console.log("light listener");
     window.addEventListener("keydown", function mediaControler(event) {
+        
         if (event.defaultPrevented) {
             return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
         }
@@ -159,8 +164,9 @@ function setupKeyListener() {
             case "Escape":
                 // ferme la lightbox si la touche "escape" est pressée
                 closeLightBox();
+                console.log("light");
                 //on retire le controle au clavier
-                window.removeEventListener("keydown", mediaControler);
+                window.removeEventListener("keydown", mediaControler, true);
                 break;
             default:
                 return; // Quitter lorsque cela ne gère pas l'événement touche.

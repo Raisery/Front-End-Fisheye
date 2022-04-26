@@ -70,15 +70,51 @@ function stopScroll() {
 function displayModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "block";
+    const main = document.getElementById("main");
+    main.classList.add("opacyfied");
+    const header = document.getElementById('header');
+    header.classList.add("opacyfied");
+    const prenom = document.getElementById("prenom");
+    prenom.focus();
+    setupModalKeyListener();
     scrollControl = true;
     changeWindowDimension();
     
+}
+
+function setupModalKeyListener() {
+    console.log("modal listener");
+    window.addEventListener("keydown", function modalControler(event) {
+
+        if (event.defaultPrevented) {
+            return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+        }
+        switch (event.key) {
+          
+            case "Escape":
+                // ferme la modal si la touche "escape" est pressée
+                closeModal();
+                console.log("modal");
+                //on retire le controle au clavier
+                window.removeEventListener("keydown", modalControler, true);
+                break;
+            default:
+                return; // Quitter lorsque cela ne gère pas l'événement touche.
+        }
+
+        // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+        event.preventDefault();
+    }, true);
 }
 
 //ferme la modal
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
+    const main = document.getElementById("main");
+    main.classList.remove("opacyfied");
+    const header = document.getElementById('header');
+    header.classList.remove("opacyfied");
     allowScroll();
     errorMsg.forEach((msg) => {
         msg.classList.add("hidden");

@@ -8,6 +8,7 @@ const options = document.querySelector(".options-list");
 Affiche les options de triage
 */
 function displayOptions() {
+    selector.style.display = "none";
     selector.classList.add('hidden');
     options.classList.remove('hidden');
 }
@@ -16,27 +17,25 @@ Affiche l'option selectionné et désaffiche les options puis charge la galerie 
 init(sortBy) est appelée depuis photographer.js
 */
 function sortBy(rule) {
-    
-    switch(rule) {
-        case 'like' :
+
+    switch (rule) {
+        case 'like':
             selector.innerHTML = `Popularité`;
-            selector.classList.remove("hidden");
-            options.classList.add("hidden");
             init("like");
             break;
-        case 'date' :
+        case 'date':
             selector.innerHTML = `Date`;
-            selector.classList.remove("hidden");
-            options.classList.add("hidden");
             init("date");
             break;
-        case 'title' :
+        case 'title':
             selector.innerHTML = `Titre`;
-            selector.classList.remove("hidden");
-            options.classList.add("hidden");
             init("title");
             break;
-        default :
-        console.log('Régle de triage inconnue');
+        default:
+            console.log('Régle de triage inconnue');
     }
+
+    selector.classList.remove("hidden");
+    selector.style.display = "block";
+    options.classList.add("hidden");
 }
