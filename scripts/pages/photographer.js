@@ -101,6 +101,7 @@ async function displayMedia(photographer, sortBy) {
     
 }
 
+//affiche le flyer en fonction du photographe de la page actuelle
 async function displayFlyer(photographer) {
     const photographerModel = photographerFactory(photographer);
     const dataMedia = await fetch('data/photographers.json')
@@ -120,7 +121,7 @@ async function displayFlyer(photographer) {
     photographerModel.getPriceLikesDOM(res);
 }
 
-
+//affiche la bonne page avec le tri séléctionné
 async function init(sortBy) {
     // Récupère les datas des photographes
     const photographer = await getPhotographer(idPhotographer);
@@ -130,4 +131,5 @@ async function init(sortBy) {
 
 };
 
+//par defaut le tri par like est selectionné
 init("like");
