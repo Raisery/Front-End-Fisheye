@@ -25,7 +25,7 @@ async function displayLightBox(media, photographerParam, sortBy) {
 
     const lightBox = document.getElementById("lightbox-modal");
     //on affiche la modal lightbox
-    lightBox.style.display = "block";
+    lightBox.style.display = "flex";
     const body = document.querySelector(".body");
     //on bloque le scroll de la page
     body.classList.add("no-scroll");
