@@ -1,10 +1,17 @@
+/*
+Factory pour la création d'objet Photographer en fonction de données @data
+*/
 function photographerFactory(data) {
     const { name, portrait, city, country, tagline, price, id } = data;
 
     const picture = `assets/Photographers-ID-Photos/${portrait}`;
 
+    /*
+    Retourne le code HTML du profil du photographer
+    */
     function getUserCardDOM() {
         const link = document.createElement('a');
+        //On ajoute le lien de la page du photographe sur toute la card
         link.setAttribute("href", `photographer.html?id=${id}`);
         const article = document.createElement('article');
 
@@ -34,6 +41,9 @@ function photographerFactory(data) {
         return (link);
     }
 
+    /*
+    Retourne le code HTML du texte du profil du photographe pour la banniere de sa page
+    */
     function getUserBannerTextDOM() {
         const text = document.createElement('div');
         const h1 = document.createElement('h1');
@@ -47,7 +57,10 @@ function photographerFactory(data) {
         text.appendChild(p);
         return text;
     }
-
+    
+    /*
+    Retourne le code HTML de l'image du profil du photographe pour la banniere de sa page
+    */
     function getUserBannerPhotoDOM() {
         const photo = document.createElement("img");
         photo.setAttribute("src", picture);
@@ -55,6 +68,9 @@ function photographerFactory(data) {
         return photo
     }
 
+     /*
+    Retourne le code HTML du flyer contenant le nombre de likes total de la galerie du photographe et son taux horaire
+    */
     function getPriceLikesDOM(nbLikes) {
         const flyer = document.querySelector('.flyer');
 
@@ -80,6 +96,9 @@ function photographerFactory(data) {
         return flyer
     }
 
+     /*
+    Retourne la liste des media dont l'auteur est le photographe triés par @sortBy
+    */
     async function getMediaList(sortBy) {
         const dataMedia = await fetch('data/photographers.json')
             .then(res => res.json())
