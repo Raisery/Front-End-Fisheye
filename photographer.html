@@ -47,14 +47,18 @@
         </header>
 				<form id="contact-form">
 					<div>
-						<label for="prenom">Prénom<span class="error-message hidden"></br>Le prénom doit contenir 2 caractéres alphabétiques minimum</span></label>
+						<label for="prenom">Prénom</label>
 						<input type="text" name="prenom" id="prenom" required />
-            <label for="nom">Nom<span class="error-message hidden"></br>Le nom doit contenir 2 caractéres alphabétiques minimum</span></label>
+            <span class="error-message hidden">Le prénom doit contenir 2 caractéres alphabétiques minimum</span>
+            <label for="nom">Nom</label>
 						<input type="text" name="nom" id="nom" required/>
-            <label for="email">Email<span class="error-message hidden"></br>L'adresse email doit être valide</span></label>
+            <span class="error-message hidden">Le nom doit contenir 2 caractéres alphabétiques minimum</span>
+            <label for="email">Email</label>
 						<input type="email" name="email" id="email" required/>
-            <label for="message">Votre message<span class="error-message hidden"></br>Les caractéres spéciaux ne sont pas autorisés</span></label>
+            <span class="error-message hidden">L'adresse email doit être valide</span>
+            <label for="message">Votre message</label>
             <textarea name="message" id="message" required></textarea>
+            <span class="error-message hidden">Les caractéres spéciaux ne sont pas autorisés</span>
 					</div>
           <button class="contact_button" >Envoyer</button>
 				</form>
