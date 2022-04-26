@@ -53,7 +53,6 @@ function allowScroll() {
 
 // stop le scroll
 function stopScroll() {
-    console.log(scrollControl);
     if(scrollControl) {
         window.scrollTo(0, 0);
         const body = document.querySelector(".body");
@@ -117,7 +116,7 @@ function verification(event) {
             result[0] = false;
             
     }
-    console.log(`prenom : ${prenom}`);
+    
 
     //test nom
     if (
@@ -128,14 +127,12 @@ function verification(event) {
             result[1] = false;
     }
 
-    console.log(`nom : ${nom}`);
 
     //test email
     if (email.toString().match(emailRegex) === null) {
         result[2] = false;
         
     }
-    console.log(`email : ${email}`);
 
 
     //test message
@@ -144,8 +141,6 @@ function verification(event) {
             result[3] = false;
 
     }
-    console.log(`message : ${message}`);
-    console.log(result);
 
 
     event.preventDefault();
@@ -156,11 +151,13 @@ function verification(event) {
     if (valid === undefined) {
         form.reset();
         closeModal();
-        console.log("formulaire valide");
+        console.log(`prenom : ${prenom}`);
+        console.log(`nom : ${nom}`);
+        console.log(`email : ${email}`);
+        console.log(`message : ${message}`);
     }
     else {
         showError(result);
-        console.log("formulaire invalide");
     }
 }
 
