@@ -68,6 +68,18 @@ class Video {
 
         video.appendChild(source);
 
+
+        const a = document.createElement("a");
+        a.setAttribute("aria-label","Voir la vidéo");
+        a.setAttribute("href",`#`);
+        //avec la touche "Enter" avec la vidéo en focus on lance également la lightbox
+        a.addEventListener('keydown', (event) => {
+            if(event.key == "Enter") {
+                displayLightBox(this, photographer,sortBy);
+            }
+        });
+
+
         var sortBy;
         const sorter = document.getElementById("sorter-selector");
         if(sorter.textContent == "Popularité") {
@@ -138,7 +150,8 @@ class Video {
         description.appendChild(title);
         description.appendChild(likes);
 
-        card.appendChild(video);
+        a.appendChild(video);
+        card.appendChild(a);
         card.appendChild(description);
         return card
     }
