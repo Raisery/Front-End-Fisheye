@@ -22,11 +22,15 @@
       <div class="sorter-container">
         <label id="sorter-label" for="sorter-selector">Trier par</label>
         <div class="sorter">
-          <button id="sorter-selector" type="button" onclick="displayOptions()">Popularité<div class="arrow-selector-down"></div></button>
+          <button id="sorter-selector" type="button" onclick="displayOptions()">Popularité</button>
+          <div class="arrow-selector-down"></div>
           <div class="options-list hidden">
-            <button class="option" onclick="sortBy('like')">Popularité<div class="arrow-selector-up"></div></button>
-            <button class="option" onclick="sortBy('date')"><div class ="line"></div>Date</button>
-            <button class="option" onclick="sortBy('title')"><div class ="line"></div>Titre</button>
+            <button class="option" onclick="sortBy('like')">Popularité</button>
+            <div class="arrow-selector-up"></div>
+            <div class ="line"></div>
+            <button class="option" onclick="sortBy('date')">Date</button>
+            <div class ="line"></div>
+            <button class="option" onclick="sortBy('title')">Titre</button>
           </div>
         </div>
       </div>
@@ -44,7 +48,7 @@
             <h2>Contactez-moi</h2>
             <h2 class="hello_name"></h2>
           </div>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer la fenêtre" />
         </header>
 				<form id="contact-form">
 					<div>
@@ -75,7 +79,7 @@
           <div class="media"></div>
           <button class="right-arrow" onclick="nextMedia()"></button>          
         </div>
-        <img class="close-lightbox" src="assets/icons/red-close.svg" onclick="closeLightBox()" />
+        <img class="close-lightbox" src="assets/icons/red-close.svg" alt="Fermer la fenêtre" onclick="closeLightBox()" />
         <h1></h1>
       </div>
     </div>

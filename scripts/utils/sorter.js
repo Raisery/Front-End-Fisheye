@@ -10,19 +10,19 @@ function sortBy(rule) {
     
     switch(rule) {
         case 'like' :
-            selector.innerHTML = `Popularité<div class="arrow-selector-down">`;
+            selector.innerHTML = `Popularité`;
             selector.classList.remove("hidden");
             options.classList.add("hidden");
             init("like");
             break;
         case 'date' :
-            selector.innerHTML = `Date<div class="arrow-selector-down">`;
+            selector.innerHTML = `Date`;
             selector.classList.remove("hidden");
             options.classList.add("hidden");
             init("date");
             break;
         case 'title' :
-            selector.innerHTML = `Titre<div class="arrow-selector-down">`;
+            selector.innerHTML = `Titre`;
             selector.classList.remove("hidden");
             options.classList.add("hidden");
             init("title");
