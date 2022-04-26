@@ -134,7 +134,7 @@ class Video {
     }
 
     getOrginalDisplayDOM(photographer) {
-        var url = `../../assets/photographers/${photographer.name}/${this.media}`;
+        var url = `assets/photographers/${photographer.name}/${this.media}`;
         const container = document.createElement("div");
 
         const video = document.createElement('video');

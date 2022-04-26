@@ -134,7 +134,7 @@ class Image {
     }
 
     getOrginalDisplayDOM(photographer) {
-        var url = `../../assets/photographers/${photographer.name}/${this.media}`;
+        var url = `assets/photographers/${photographer.name}/${this.media}`;
         const container = document.createElement("div");
 
         const img = document.createElement("img");
