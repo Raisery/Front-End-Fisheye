@@ -1,11 +1,20 @@
+/*
+La gestion des boutons de triage de la galerie
+*/
 const selector = document.getElementById("sorter-selector");
 const options = document.querySelector(".options-list");
 
+/*
+Affiche les options de triage
+*/
 function displayOptions() {
     selector.classList.add('hidden');
     options.classList.remove('hidden');
 }
-
+/*
+Affiche l'option selectionné et désaffiche les options puis charge la galerie avec le bon triage
+init(sortBy) est appelée depuis photographer.js
+*/
 function sortBy(rule) {
     
     switch(rule) {
