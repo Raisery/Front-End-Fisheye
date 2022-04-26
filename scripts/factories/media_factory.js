@@ -1,3 +1,6 @@
+/*
+Gere la création de media en fonction du type
+*/
 class MediaFactory {
     constructor(data) {
         if(data.image !== undefined) {
