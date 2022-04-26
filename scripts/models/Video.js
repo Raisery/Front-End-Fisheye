@@ -1,4 +1,10 @@
+/*
+Classe qui gere les media de type video
+*/
 class Video {
+    /*
+    Construction de l'objet Video a partir de donnée @data
+    */
     constructor(data) {
         this._id = data.id;
         this._photographerId = data.photographerId;
@@ -42,7 +48,9 @@ class Video {
         return this._type;
     }
 
-
+    /*
+    Retourne le code HTML d'une video en format galerie 
+    */
     getMediaCardDOM(photographer) {
         var url = `assets/photographers/${photographer.name}/${this.media}`;
 
@@ -74,10 +82,11 @@ class Video {
             sortBy = "title";
         }
 
+        //au clique sur la video on lance la lightbox
         video.addEventListener('click', () => { 
             displayLightBox(this, photographer,sortBy);
         });
-
+        //avec la touche "Enter" avec la video en focus on lance également la lightbox
         video.addEventListener('keydown', (event) => {
             if(event.key == "Enter") {
                 displayLightBox(this, photographer,sortBy);
@@ -105,6 +114,7 @@ class Video {
         heart.classList.add('fa-heart');
         heart.classList.add('clickable');
 
+        //au changement d'état de la checkbox on incrémente ou décremente le nombre de like de la video et le nombre de like total du photographe
         checkbox.addEventListener('change', e => {
             const totalLikes = document.querySelector('.total-likes');
             if(e.target.checked){
@@ -133,6 +143,9 @@ class Video {
         return card
     }
 
+    /*
+    Retourne l'affichage orginal de la vidéo
+    */
     getOrginalDisplayDOM(photographer) {
         var url = `assets/photographers/${photographer.name}/${this.media}`;
         const container = document.createElement("div");

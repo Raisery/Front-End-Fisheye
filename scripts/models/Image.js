@@ -1,4 +1,10 @@
+/*
+Classe qui gere les media de type Image
+*/
 class Image {
+    /*
+    Construction de l'objet Image a partir de donnée @data
+    */
     constructor(data) {
         this._id = data.id;
         this._photographerId = data.photographerId;
@@ -42,6 +48,9 @@ class Image {
         return this._type;
     }
 
+    /*
+    Retourne le code HTML d'une Image en format galerie 
+    */
     getMediaCardDOM(photographer) {
         var url = `assets/photographers/${photographer.name}/${this.media}`;
         const card = document.createElement('article');
@@ -66,6 +75,7 @@ class Image {
             sortBy = "title";
         }
 
+        //au clique sur l'image on lance la lightbox
         img.addEventListener('click', () => { 
             displayLightBox(this, photographer,sortBy);
         });
@@ -75,7 +85,7 @@ class Image {
         const a = document.createElement("a");
         a.setAttribute("aria-label","Voir la photo");
         a.setAttribute("href",`#`);
-
+        //avec la touche "Enter" avec l'image'en focus on lance également la lightbox
         a.addEventListener('keydown', (event) => {
             if(event.key == "Enter") {
                 displayLightBox(this, photographer,sortBy);
@@ -103,6 +113,7 @@ class Image {
         heart.classList.add('fa-heart');
         heart.classList.add('clickable');
 
+        //au changement d'état de la checkbox on incrémente ou décremente le nombre de like de l'image et le nombre de like total du photographe
         checkbox.addEventListener('change', e => {
             const totalLikes = document.querySelector('.total-likes');
             if(e.target.checked){
@@ -133,6 +144,9 @@ class Image {
         return card
     }
 
+    /*
+    Retourne l'affichage orginal de l'image
+    */
     getOrginalDisplayDOM(photographer) {
         var url = `assets/photographers/${photographer.name}/${this.media}`;
         const container = document.createElement("div");
