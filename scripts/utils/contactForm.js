@@ -1,3 +1,6 @@
+/*
+gestion de la modal de contact
+*/
 const submitBtn = document.querySelector(".contact_button");
 submitBtn.addEventListener("click", function (event) {
     verification(event);
@@ -63,6 +66,7 @@ function stopScroll() {
     
 }
 
+//affiche la modal
 function displayModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "block";
@@ -71,6 +75,7 @@ function displayModal() {
     
 }
 
+//ferme la modal
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
@@ -81,9 +86,14 @@ function closeModal() {
     scrollControl = false;
 }
 
+/*
+Affiche les erreurs dans le formulaire
+@tab est un tableau de boolean qui contient les erreurs
+*/
 function showError(tab) {
     var index = 0;
     tab.forEach((value) => {
+        //si la valeur actuelle est false on affiche l'erreur correspondante sinon on la cache
         if(!value) {
             errorMsg[index].classList.remove("hidden");
         }
@@ -94,6 +104,10 @@ function showError(tab) {
     });
 }
 
+/*
+Verifie si les informations envoyées par le formulaire sont valides
+@event est l'evenement provoqué par l'envoi du formulaire
+*/
 function verification(event) {
     var result = [true, true, true, true];
 
@@ -142,12 +156,13 @@ function verification(event) {
 
     }
 
-
+    //on stop l'action par defaut du formulaire
     event.preventDefault();
     event.stopPropagation();
 
     const valid = result.find(element => element == false)
 
+    // on envoi les champs dans la console si le formulaire est valide sinon on affiche les erreurs
     if (valid === undefined) {
         form.reset();
         closeModal();
