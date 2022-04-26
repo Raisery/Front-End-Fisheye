@@ -81,7 +81,7 @@ function photographerFactory(data) {
     }
 
     async function getMediaList(sortBy) {
-        const dataMedia = await fetch('../../data/photographers.json')
+        const dataMedia = await fetch('data/photographers.json')
             .then(res => res.json())
             .then(res => res.media)
             .catch(err => console.log('Un probléme est survenu', err));
