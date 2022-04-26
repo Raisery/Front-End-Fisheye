@@ -2,6 +2,11 @@
     height: 100%;
     width: 100%;
     display: none;
+    background-color:#901C1C;
+}
+
+.opacyfied {
+    opacity: 0.2;
 }
 
 .photograph-header {
@@ -77,6 +82,7 @@
     left: 50%;
     transform: translate(-50%,-50%);
 }
+
 
 .modal {
     position: absolute;
@@ -434,8 +440,12 @@ form textarea {
 }
 
 .media video {
-    width: 100%;
+    display: block;
+    object-fit: contain;
     border-radius: 5px;
+    max-height: 70vh;
+    max-width: 100%;
+    width: auto;
 }
 
 

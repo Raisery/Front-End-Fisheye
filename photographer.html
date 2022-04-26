@@ -8,7 +8,7 @@
     <title>Fisheye - photographe </title>
   </head>
   <body class="body">
-    <header>
+    <header id="header">
       <a href="index.html" aria-label="Page d'accueil" >
         <img src="assets/images/logo.png" class="logo" alt="Logo Fish eye" />
       </a>
@@ -22,15 +22,15 @@
       <div class="sorter-container">
         <label id="sorter-label" for="sorter-selector">Trier par</label>
         <div class="sorter">
-          <button id="sorter-selector" type="button" onclick="displayOptions()">Popularité</button>
+        <button id="sorter-selector" type="button" aria-label="cliquer pour sélectionner le tri" onclick="displayOptions()">Popularité</button>
           <div class="arrow-selector-down"></div>
           <div class="options-list hidden">
-            <button class="option" onclick="sortBy('like')">Popularité</button>
+            <button class="option" onclick="sortBy('like')" aria-label="trier par Popularité">Popularité</button>
             <div class="arrow-selector-up"></div>
             <div class ="line"></div>
-            <button class="option" onclick="sortBy('date')">Date</button>
+            <button class="option" onclick="sortBy('date')" aria-label="trier par Date">Date</button>
             <div class ="line"></div>
-            <button class="option" onclick="sortBy('title')">Titre</button>
+            <button class="option" onclick="sortBy('title')" aria-label="trier par titre">Titre</button>
           </div>
         </div>
       </div>
@@ -48,7 +48,9 @@
             <h2>Contactez-moi</h2>
             <h2 class="hello_name"></h2>
           </div>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer la fenêtre" />
+          <a href="#" alt="Fermer la fenêtre" onclick="closeModal()">
+            <img src="assets/icons/close.svg" alt="Fermer la fenêtre" />  
+          </a>
         </header>
 				<form id="contact-form">
 					<div>
@@ -75,11 +77,14 @@
       <div class="media-modal">
 
         <div class="lightbox_main-content">
-          <button class="left-arrow" onclick="previousMedia()"></button>
+          <button class="left-arrow" onclick="previousMedia()" aria-label="précédent"></button>
           <div class="media"></div>
-          <button class="right-arrow" onclick="nextMedia()"></button>          
+          <button class="right-arrow" onclick="nextMedia()" aria-label="suivant"></button>          
         </div>
-        <img class="close-lightbox" src="assets/icons/red-close.svg" alt="Fermer la fenêtre" onclick="closeLightBox()" />
+        <a class="close-lightbox" href="#" onclick="closeLightBox()" aria-label="Fermer la fenêtre">
+          <img class="close-lightbox" src="assets/icons/red-close.svg" alt="Fermer la fenêtre" /> 
+        </a>
+        
         <h1></h1>
       </div>
     </div>
