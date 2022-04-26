@@ -44,7 +44,7 @@ class Video {
 
 
     getMediaCardDOM(photographer) {
-        var url = `../../assets/photographers/${photographer.name}/${this.media}`;
+        var url = `assets/photographers/${photographer.name}/${this.media}`;
 
         const card = document.createElement('article');
         card.classList.add("media-card");

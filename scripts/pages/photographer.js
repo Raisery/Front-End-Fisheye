@@ -39,7 +39,7 @@ async function displayData(photographer) {
 //sortBy peut etre : date / title / like
 async function displayMedia(photographer, sortBy) {
     const mediaContainer = document.querySelector(".media-container");
-    const dataMedia = await fetch('../../data/photographers.json')
+    const dataMedia = await fetch('data/photographers.json')
     .then(res => res.json())
     .then(res => res.media)
     .catch(err => console.log('Un probléme est survenu', err));
@@ -103,7 +103,7 @@ async function displayMedia(photographer, sortBy) {
 
 async function displayFlyer(photographer) {
     const photographerModel = photographerFactory(photographer);
-    const dataMedia = await fetch('../../data/photographers.json')
+    const dataMedia = await fetch('data/photographers.json')
     .then(res => res.json())
     .then(res => res.media)
     .catch(err => console.log('Un probléme est survenu', err));
