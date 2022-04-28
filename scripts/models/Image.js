@@ -83,7 +83,7 @@ class Image {
         
 
         const a = document.createElement("a");
-        a.setAttribute("aria-label","Voir la photo");
+        a.setAttribute("aria-label",`Voir la photo ${this.title}`);
         a.setAttribute("href",`#`);
         //avec la touche "Enter" avec l'image'en focus on lance également la lightbox
         a.addEventListener('keydown', (event) => {

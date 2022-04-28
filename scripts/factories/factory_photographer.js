@@ -18,19 +18,21 @@ function photographerFactory(data) {
 
         const img = document.createElement('img');
         img.setAttribute("src", picture);
-        img.setAttribute("alt", `Photo de profil de ${name}`);
+        img.setAttribute("alt", `Photo de profil de ${name}.`);
 
         const h2 = document.createElement('h2');
         h2.textContent = name;
 
         const h3 = document.createElement('h3');
         h3.textContent = (`${city}, ${country}`);
+        h3.setAttribute("aria-label",`Domicile : ${city}, ${country}.`);
 
         const h4 = document.createElement('h4');
+        h4.setAttribute("aria-label",`Description : ${tagline}.`);
         h4.textContent = tagline;
 
         const p = document.createElement('p');
-        p.setAttribute("aria-label", `prix : ${price} euros par jour`);
+        p.setAttribute("aria-label", `prix : ${price} euros par jour.`);
         p.textContent = `${price}€/jour`;
 
         article.appendChild(img);
