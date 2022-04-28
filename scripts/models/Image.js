@@ -112,7 +112,6 @@ class Image {
         heart.classList.add('fas');
         heart.classList.add('fa-heart');
         heart.classList.add('clickable');
-        heart.setAttribute("tabindex","0");
         heart.classList.add('heart');
 
         //au changement d'état de la checkbox on incrémente ou décremente le nombre de like de la video et le nombre de like total du photographe
@@ -122,29 +121,34 @@ class Image {
                 //do something
                 count.innerHTML = this.likes + 1;
                 totalLikes.innerHTML = (parseInt(totalLikes.innerHTML)+1);
+                checkbox.setAttribute("aria-label","j'aime");
             }
 
             else {
                 count.innerHTML = this.likes;
                 totalLikes.innerHTML = (parseInt(totalLikes.innerHTML)-1);
+                checkbox.setAttribute("aria-label","je n'aime pas");
             }
             heart.blur();
         });
         //pareil au focus du coeur du clavier + enter
-        heart.addEventListener('keydown', e => {
+        checkbox.addEventListener('keydown', e => {
             const totalLikes = document.querySelector('.total-likes');
             if(e.key == 'Enter') {
                 checkbox.checked = !checkbox.checked;
                 if(checkbox.checked) {
                     count.innerHTML = this.likes + 1;
                     totalLikes.innerHTML = (parseInt(totalLikes.innerHTML)+1);
+                    checkbox.setAttribute("aria-label","j'aime");
                 }
                 else {
                     count.innerHTML = this.likes;
                     totalLikes.innerHTML = (parseInt(totalLikes.innerHTML)-1);
+                    checkbox.setAttribute("aria-label","je n'aime pas");
                 }
             }
         });
+
 
         likes.appendChild(count);
         likes.appendChild(checkbox);

@@ -111,6 +111,7 @@ class Video {
 
         const checkbox = document.createElement('input');
         checkbox.setAttribute("type","checkbox");
+        checkbox.setAttribute("aria-label","j'aime");
 
         const count = document.createElement("p");
         count.textContent = this.likes;
@@ -120,7 +121,6 @@ class Video {
         heart.classList.add('fas');
         heart.classList.add('fa-heart');
         heart.classList.add('clickable');
-        heart.setAttribute("tabindex","0");
         heart.classList.add('heart');
 
         //au changement d'état de la checkbox on incrémente ou décremente le nombre de like de la video et le nombre de like total du photographe
@@ -130,26 +130,30 @@ class Video {
                 //do something
                 count.innerHTML = this.likes + 1;
                 totalLikes.innerHTML = (parseInt(totalLikes.innerHTML)+1);
+                checkbox.setAttribute("aria-label","j'aime");
             }
 
             else {
                 count.innerHTML = this.likes;
                 totalLikes.innerHTML = (parseInt(totalLikes.innerHTML)-1);
+                checkbox.setAttribute("aria-label","je n'aime pas");
             }
             heart.blur();
         });
         //pareil au focus du coeur du clavier + enter
-        heart.addEventListener('keydown', e => {
+        checkbox.addEventListener('keydown', e => {
             const totalLikes = document.querySelector('.total-likes');
             if(e.key == 'Enter') {
                 checkbox.checked = !checkbox.checked;
                 if(checkbox.checked) {
                     count.innerHTML = this.likes + 1;
                     totalLikes.innerHTML = (parseInt(totalLikes.innerHTML)+1);
+                    checkbox.setAttribute("aria-label","j'aime");
                 }
                 else {
                     count.innerHTML = this.likes;
                     totalLikes.innerHTML = (parseInt(totalLikes.innerHTML)-1);
+                    checkbox.setAttribute("aria-label","je n'aime pas");
                 }
             }
         });

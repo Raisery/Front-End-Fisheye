@@ -229,6 +229,7 @@ form textarea {
 }
 
 .description_likes {
+    position: relative;
     display: flex;
     align-items: center;
     align-self: flex-start;
@@ -237,7 +238,9 @@ form textarea {
 }
 
 .description_likes input[type="checkbox"] {
-  display: none;
+  opacity: 0;
+  position: absolute;
+  right: 0;
 }
 
 .fa-heart {
@@ -248,7 +251,7 @@ form textarea {
     background: transparent;
 }
 
-.heart:focus, .heart:hover {
+.description_likes input[type="checkbox"]:focus+.heart, .heart:hover {
     color: #DB8876;
 }
 
