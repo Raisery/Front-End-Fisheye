@@ -10,7 +10,14 @@
     height: 100%;
     width: 100%;
     display: none;
-    background-color:#901C1C;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#contact_modal a:focus img, #contact_modal a:hover img{
+    filter: invert(1);
+
 }
 
 .opacyfied {
