@@ -86,7 +86,6 @@ function nextMedia() {
     //on vide l'html du media actuel
     const mediaDisplayed = document.querySelector(".media");
     mediaDisplayed.innerHTML = "";
-    mediaDisplayed.focus();
 
     // on formate l'affichage du nouveau media
     const mediaOriginalDisplay = mediaList[currentMediaIndex].getOrginalDisplayDOM(photographer);
@@ -114,7 +113,7 @@ function previousMedia() {
     //on vide l'html du media actuel
     const mediaDisplayed = document.querySelector(".media");
     mediaDisplayed.innerHTML = "";
-    mediaDisplayed.focus();
+    
 
     // on formate l'affichage du nouveau media
     const mediaOriginalDisplay = mediaList[currentMediaIndex].getOrginalDisplayDOM(photographer);
@@ -126,6 +125,7 @@ function previousMedia() {
     mediaOriginalDisplay.appendChild(number);
     //on injecte le code html dans la lightbox
     mediaDisplayed.innerHTML = mediaOriginalDisplay.innerHTML;
+    
 }
 
 /*
