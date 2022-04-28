@@ -179,7 +179,7 @@ class Video {
 
         const video = document.createElement('video');
         video.controls = true;
-        video.setAttribute("aria-label",`Vidéo de ${this.title}`);   
+        video.setAttribute("aria-label",`Vidéo de ${this.title}.`);   
         video.setAttribute('id','video');
 
         const source = document.createElement('source');

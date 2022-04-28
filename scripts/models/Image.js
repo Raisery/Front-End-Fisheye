@@ -171,6 +171,7 @@ class Image {
         const container = document.createElement("div");
 
         const img = document.createElement("img");
+        img.setAttribute("aria-label",`Photo de ${this.title}.`);
         img.setAttribute("src",url);
         img.setAttribute("alt",`Photo de ${this.title}`);
         img.setAttribute('id','image');
