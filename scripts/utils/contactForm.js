@@ -83,7 +83,6 @@ function displayModal() {
 }
 
 function setupModalKeyListener() {
-    console.log("modal listener");
     window.addEventListener("keydown", function modalControler(event) {
 
         if (event.defaultPrevented) {
@@ -94,7 +93,6 @@ function setupModalKeyListener() {
             case "Escape":
                 // ferme la modal si la touche "escape" est pressée
                 closeModal();
-                console.log("modal");
                 //on retire le controle au clavier
                 window.removeEventListener("keydown", modalControler, true);
                 break;

@@ -132,7 +132,6 @@ function previousMedia() {
 active le controle au clavier de la lightbox
 */
 function setupLightKeyListener() {
-    console.log("light listener");
     window.addEventListener("keydown", function mediaControler(event) {
         
         if (event.defaultPrevented) {
@@ -164,7 +163,6 @@ function setupLightKeyListener() {
             case "Escape":
                 // ferme la lightbox si la touche "escape" est pressée
                 closeLightBox();
-                console.log("light");
                 //on retire le controle au clavier
                 window.removeEventListener("keydown", mediaControler, true);
                 break;
