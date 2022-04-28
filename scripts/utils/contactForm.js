@@ -93,8 +93,7 @@ function setupModalKeyListener() {
             case "Escape":
                 // ferme la modal si la touche "escape" est pressée
                 closeModal();
-                //on retire le controle au clavier
-                window.removeEventListener("keydown", modalControler, true);
+                
                 break;
             default:
                 return; // Quitter lorsque cela ne gère pas l'événement touche.
@@ -118,6 +117,8 @@ function closeModal() {
         msg.classList.add("hidden");
     });
     scrollControl = false;
+    //on retire le controle au clavier
+    window.removeEventListener("keydown", modalControler, true);
 }
 
 /*

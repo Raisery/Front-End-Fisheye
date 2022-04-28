@@ -71,6 +71,8 @@ function closeLightBox() {
     const flyer = document.querySelector(".flyer");
     //on retire la correction de décalage du flyer
     flyer.classList.remove("flyer-no-scroll");
+    //on retire le controle au clavier
+    window.removeEventListener("keydown", mediaControler, true);
 }
 
 /*
@@ -135,7 +137,7 @@ function setupLightKeyListener() {
     window.addEventListener("keydown", function mediaControler(event) {
         
         if (event.defaultPrevented) {
-            return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+            return; // Ne rien faire si l'événement de la touche était déjà consommé.
         }
 
         switch (event.key) {
@@ -163,8 +165,7 @@ function setupLightKeyListener() {
             case "Escape":
                 // ferme la lightbox si la touche "escape" est pressée
                 closeLightBox();
-                //on retire le controle au clavier
-                window.removeEventListener("keydown", mediaControler, true);
+                
                 break;
             default:
                 return; // Quitter lorsque cela ne gère pas l'événement touche.
