@@ -112,23 +112,38 @@ class Image {
         heart.classList.add('fas');
         heart.classList.add('fa-heart');
         heart.classList.add('clickable');
+        heart.setAttribute("tabindex","0");
+        heart.classList.add('heart');
 
-        //au changement d'état de la checkbox on incrémente ou décremente le nombre de like de l'image et le nombre de like total du photographe
+        //au changement d'état de la checkbox on incrémente ou décremente le nombre de like de la video et le nombre de like total du photographe
         checkbox.addEventListener('change', e => {
             const totalLikes = document.querySelector('.total-likes');
             if(e.target.checked){
                 //do something
-                heart.style.color = "#DB8876";
                 count.innerHTML = this.likes + 1;
                 totalLikes.innerHTML = (parseInt(totalLikes.innerHTML)+1);
             }
 
             else {
-                heart.style.color = "#901C1C";
                 count.innerHTML = this.likes;
                 totalLikes.innerHTML = (parseInt(totalLikes.innerHTML)-1);
             }
-        
+            heart.blur();
+        });
+        //pareil au focus du coeur du clavier + enter
+        heart.addEventListener('keydown', e => {
+            const totalLikes = document.querySelector('.total-likes');
+            if(e.key == 'Enter') {
+                checkbox.checked = !checkbox.checked;
+                if(checkbox.checked) {
+                    count.innerHTML = this.likes + 1;
+                    totalLikes.innerHTML = (parseInt(totalLikes.innerHTML)+1);
+                }
+                else {
+                    count.innerHTML = this.likes;
+                    totalLikes.innerHTML = (parseInt(totalLikes.innerHTML)-1);
+                }
+            }
         });
 
         likes.appendChild(count);

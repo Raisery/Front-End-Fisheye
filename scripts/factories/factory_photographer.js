@@ -13,6 +13,7 @@ function photographerFactory(data) {
         const link = document.createElement('a');
         //On ajoute le lien de la page du photographe sur toute la card
         link.setAttribute("href", `photographer.html?id=${id}`);
+        link.classList.add("link_profil");
         const article = document.createElement('article');
 
         const img = document.createElement('img');

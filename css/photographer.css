@@ -1,3 +1,11 @@
+.logo-link:focus {
+    border: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
 #contact_modal {
     height: 100%;
     width: 100%;
@@ -199,7 +207,7 @@ form textarea {
     border-width: 2px;
 }
 
-.media-card a:focus img, .media-card video:focus {
+.media-card a:focus img, .media-card a:focus video {
     border: solid;
     border-width: 2px;
     border-color: linear-gradient(ellipse at center top, white,black) ;
@@ -229,9 +237,8 @@ form textarea {
 }
 
 .description_likes input[type="checkbox"] {
-   display: none;
+  display: none;
 }
-
 
 .fa-heart {
     font-size: 18px;
@@ -239,6 +246,10 @@ form textarea {
     color: #901C1C;
     border: none;
     background: transparent;
+}
+
+.heart:focus, .heart:hover {
+    color: #DB8876;
 }
 
 
