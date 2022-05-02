@@ -11,17 +11,21 @@ var mediaList = [];
 //photographe de la page actuelle
 var photographer = 0;
 
+// instance de Event listener
+var listener = 0;
+
 /*
 affiche la lightbox avec en media celui qui a appelé cette fonction
 @media est le media qui a appelé la fonction
-@photographerParam est le photographe a qui appartient le media
+@photographerParam est le photographe sous forme JSON a qui appartient le media
 @sortBy est l'ordre de triage actuel
 */
 async function displayLightBox(media, photographerParam, sortBy) {
     //active le controle de la lightbox au clavier
-    setupLightKeyListener();
+    listener = setupLightKeyListener();
     //récuperation du photographe en variable globale
     photographer = photographerParam;
+
     const main = document.getElementById('main');
     main.style.display = "none";
     const lightBox = document.getElementById("lightbox-modal");
@@ -71,8 +75,6 @@ function closeLightBox() {
     const flyer = document.querySelector(".flyer");
     //on retire la correction de décalage du flyer
     flyer.classList.remove("flyer-no-scroll");
-    //on retire le controle au clavier
-    window.removeEventListener("keydown", mediaControler, true);
 }
 
 /*
@@ -165,6 +167,7 @@ function setupLightKeyListener() {
             case "Escape":
                 // ferme la lightbox si la touche "escape" est pressée
                 closeLightBox();
+                closeModal();
                 
                 break;
             default:
@@ -174,5 +177,7 @@ function setupLightKeyListener() {
         // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
         event.preventDefault();
     }, true);
+
+    listener= this;
 }
 

@@ -16,6 +16,8 @@ const form = document.getElementById("contact-form");
 
 var scrollControl = false;
 
+var listener = 0;
+
 // arrete ou autorise le scroll en fonction de la taille de l'écran
 function changeWindowDimension() {
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
@@ -93,6 +95,7 @@ function setupModalKeyListener() {
             case "Escape":
                 // ferme la modal si la touche "escape" est pressée
                 closeModal();
+                closeLightBox();
                 
                 break;
             default:
@@ -102,6 +105,8 @@ function setupModalKeyListener() {
         // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
         event.preventDefault();
     }, true);
+
+    listener = this;
 }
 
 //ferme la modal
@@ -117,8 +122,6 @@ function closeModal() {
         msg.classList.add("hidden");
     });
     scrollControl = false;
-    //on retire le controle au clavier
-    window.removeEventListener("keydown", modalControler, true);
 }
 
 /*
