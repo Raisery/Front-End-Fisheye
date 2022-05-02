@@ -129,7 +129,7 @@ async function init(sortBy) {
     displayData(photographer);
     displayFlyer(photographer);
 
-};
+}
 
 //par defaut le tri par like est selectionné
 init("like");

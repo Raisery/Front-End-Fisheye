@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@eslint/eslintrc": "^1.2.2",
     "eslint": "^8.13.0"
   }
 }
